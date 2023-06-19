@@ -12,7 +12,10 @@ public class TestSpringTransactionBestpracticeApplication {
 	@Bean
 	@ServiceConnection
 	MySQLContainer<?> mysqlContainer() {
-		return new MySQLContainer<>("mysql:latest");
+		return new MySQLContainer<>("mysql:latest")
+				.withDatabaseName("testcontainer")
+				.withUsername("root")
+				.withPassword("root");
 	}
 
 	public static void main(String[] args) {
